@@ -13,7 +13,7 @@ from discord.ext import commands
 from minecraft import setup_minecraft_commands
 
 # Configuración inicial del bot
-token = "MTIxMDc4MjM4MjI3ODMyMDE3OA.Gv72yt.qt6Xwpgzee7SxRgmY9dmyMk6Yj8QI1cIcfIVrI"
+token = "token"
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="*", intents=intents)
 
