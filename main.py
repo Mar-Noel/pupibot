@@ -1,10 +1,7 @@
 from discord.ext import commands
 from comandos_generales import setup_general_commands
-#from funciones_minecraft import setup_minecraft_commands
 from rendimiento import setup_performance_commands
-#from tf2 import setup_tf2_commands
 from discord_easy_commands import EasyBot
-#import pyjokes  # Esto daba error, por eso está comentado
 import discord
 import subprocess
 import os
@@ -13,7 +10,6 @@ import asyncio
 import random
 import pygetwindow as gw
 from discord.ext import commands
-#from mctools import RCONClient, QUERYClient
 from minecraft import setup_minecraft_commands
 
 # Configuración inicial del bot
@@ -31,6 +27,17 @@ setup_performance_commands(bot)
 @bot.event
 async def on_ready():
     print(f"We have logged in as {bot.user}")
+
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    # Verificar si el error es porque el comando no existe
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send(f"No entendi, Tu madre por si acaso")
+    else:
+        # Manejar otros errores (opcional)
+        await ctx.send(f"❌**error**❌ =>: {str(error)}")
 
 bot.run(token)
 
